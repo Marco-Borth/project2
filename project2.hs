@@ -16,7 +16,6 @@ data Day = Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 -- whatDay :: Int -> Data.Time.Calendar.Day
 -- whatDay xs | xs > 0 = Data.Time.Calendar.Day
 
-
 data Month a = January | February | March | April | May | June | July | August
              | September | October | November | December
       deriving(Show, Ord, Eq)
