@@ -4,21 +4,24 @@
 
 import Data.Time.Clock
 import Data.Time.Calendar
+import Data.Time.Calendar.MonthDay
 
 date :: IO (Integer,Int,Int) -- :: (year,month,day)
 date = getCurrentTime >>= return . toGregorian . utctDay
 
 -- https://wiki.haskell.org/Getting_the_current_date
 
+second xs = head (tail xs)
+
 data Day = Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
     deriving(Show, Ord, Eq)
 
--- whatDay :: Int -> Data.Time.Calendar.Day
--- whatDay xs | xs > 0 = Data.Time.Calendar.Day
+data Month = January | February | March | April | May | June | July | August
+           | September | October | November | December
+       deriving(Show, Ord, Eq)
 
-data Month a = January | February | March | April | May | June | July | August
-             | September | October | November | December
-      deriving(Show, Ord, Eq)
+-- whatMonth :: IO (Integer,Int,Int) -> IO (Integer,Int,Int)
+-- whatMonth = getCurrentTime
 
 data Set a = Empty
          | Entry a
